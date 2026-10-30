@@ -88,3 +88,6 @@ ComfyUI, Real-ESRGAN, Dream Video Batches, VideoHelperSuite, model weights, and 
 This project is an independent community workflow and is not officially affiliated with or endorsed by the maintainers of those projects.
 <img width="1617" height="799" alt="image" src="https://github.com/user-attachments/assets/470dc3e4-5198-42d7-8554-91fba76c984a" />
 
+<img width="1847" height="626" alt="image" src="https://github.com/user-attachments/assets/5cbb9d34-871e-4e3c-a348-eff7c3c63390" />
+
+
