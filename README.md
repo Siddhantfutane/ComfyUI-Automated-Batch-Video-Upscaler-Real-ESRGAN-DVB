@@ -50,3 +50,5 @@ Process multiple MP4 files from a directory, one file per queued execution, upsc
 - Do not publish your personal Windows directory paths, or replace them with placeholders before publishing.
 - Do not distribute third-party model weights or custom-node code without checking licenses.
 - This workflow JSON does **not** bundle the ExactFilenameAfterSave Python implementation.
+<img width="1617" height="799" alt="image" src="https://github.com/user-attachments/assets/470dc3e4-5198-42d7-8554-91fba76c984a" />
+
