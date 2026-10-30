@@ -1,0 +1,850 @@
+{
+  "id": "6fcb8b56-8232-4290-9b42-676373092edf",
+  "revision": 0,
+  "last_node_id": 49,
+  "last_link_id": 71,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        630,
+        -270
+      ],
+      "size": [
+        280,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.10.0",
+        "models": [
+          {
+            "name": "RealESRGAN_x4plus.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Real-ESRGAN_repackaged/resolve/main/RealESRGAN_x4plus.safetensors",
+            "directory": "upscale_models"
+          }
+        ],
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "RealESRGAN_x4plus.safetensors"
+      ],
+      "widgets_values_named": {
+        "model_name": "RealESRGAN_x4plus.safetensors"
+      }
+    },
+    {
+      "id": 15,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        299.74296527777807,
+        -200.50036111110862
+      ],
+      "size": [
+        238.14453125,
+        286
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "video",
+          "type": "STRING",
+          "widget": {
+            "name": "video"
+          },
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            53
+          ]
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideoPath",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": {
+        "video": "",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "",
+            "type": "path",
+            "format": "video/",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      },
+      "widgets_values_named": {
+        "video": "",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "",
+            "type": "path",
+            "format": "video/",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        930,
+        0
+      ],
+      "size": [
+        233.5689453125,
+        46
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 23
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            52,
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "type": "VHS_VideoInfo",
+      "pos": [
+        612.8064791666669,
+        125.04202083333546
+      ],
+      "size": [
+        234.931640625,
+        206
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "source_fps🟨",
+          "type": "FLOAT",
+          "links": [
+            54
+          ]
+        },
+        {
+          "name": "source_frame_count🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_duration🟨",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "source_width🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_height🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_fps🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_frame_count🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_duration🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_width🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_height🟦",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoInfo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 19,
+      "type": "For Each Filename [DVB]",
+      "pos": [
+        -23.374999999999673,
+        155.83333333333124
+      ],
+      "size": [
+        230,
+        146
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "filepath",
+          "type": "STRING",
+          "links": [
+            29
+          ]
+        },
+        {
+          "name": "name",
+          "type": "STRING",
+          "links": [
+            56
+          ]
+        },
+        {
+          "name": "foreach",
+          "type": "FOREACH",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "For Each Filename [DVB]",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "id": true,
+            "directory": true,
+            "pattern": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        },
+        "cnr_id": "comfyui-dream-video-batches",
+        "ver": "c4e2b4b2e37783ec59588ea92f03fff5d800670e"
+      },
+      "widgets_values": [
+        "banana",
+        "Source_folder",
+        "*.mp4"
+      ],
+      "widgets_values_named": {
+        "id": "banana",
+        "directory": "Source_folder",
+        "pattern": "*.mp4"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 20,
+      "type": "For Each Done [DVB]",
+      "pos": [
+        1547.331764266414,
+        816.6653683521524
+      ],
+      "size": [
+        154.5728515625,
+        46
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 61
+        },
+        {
+          "name": "foreach",
+          "type": "FOREACH",
+          "link": 30
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "For Each Done [DVB]",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        },
+        "cnr_id": "comfyui-dream-video-batches",
+        "ver": "c4e2b4b2e37783ec59588ea92f03fff5d800670e"
+      }
+    },
+    {
+      "id": 36,
+      "type": "MarkdownNote",
+      "pos": [
+        -382.70270431588045,
+        459.72442722681467
+      ],
+      "size": [
+        880,
+        850
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "# Batch Video Upscaler — Real-ESRGAN (ComfyUI)\n\n## Purpose\nProcess multiple MP4 files from a directory, one file per queued execution, upscale their frames with RealESRGAN_x4plus, retain source audio and frame rate, and save to a dedicated output folder. The optional final custom node attempts to rename numbered SaveVideo outputs back to the original basename.\n\n## Required nodes\n- **ComfyUI core:** UpscaleModelLoader, ImageUpscaleWithModel, CreateVideo, SaveVideo.\n- **VideoHelperSuite (VHS):** VHS_LoadVideoPath, VHS_VideoInfo.\n- **Dream Video Batches (DVB):** For Each Filename [DVB], For Each Done [DVB].\n- **StringConcatenate**, **PreviewAny**, and **MarkdownNote** from their respective installed packs.\n- **Optional custom node:** ExactFilenameAfterSave (requires `custom_nodes/exact_filename_output/__init__.py`; NOT included in this JSON).\n\n## Data flow\n1. DVB selects one matching MP4 per queued execution; `filepath` feeds VHS_LoadVideoPath.\n2. VHS_LoadVideoPath decodes frames, source audio, and video information.\n3. UpscaleModelLoader loads `RealESRGAN_x4plus.safetensors`; ImageUpscaleWithModel upscales decoded frames.\n4. VHS_VideoInfo.source_fps feeds CreateVideo.fps. Original audio feeds CreateVideo.audio.\n5. CreateVideo packages upscaled frames, FPS, and audio as a VIDEO; SaveVideo encodes and saves it.\n6. DVB `name` feeds StringConcatenate.`string_b`; `string_a` is `video/Andhbhakt/Up/` and delimiter is empty. The result feeds SaveVideo.filename_prefix and ExactFilenameAfterSave.filename_prefix.\n7. SaveVideo.video feeds ExactFilenameAfterSave.video. The custom node attempts exact-filename renaming after save.\n8. Upscaled frames also feed For Each Done.image, and DVB.foreach feeds For Each Done.foreach.\n\n## Running a batch\n- Edit DVB `directory` to your own absolute input directory; the supplied path is machine-specific.\n- Set DVB `pattern` to `*.mp4` (or change it to match your media).\n- **Batch Count next to Run = number of files you want to process**. DVB does not automatically queue all files in a single execution.\n- Queue sequentially, not concurrently, especially when using exact-filename renaming.\n- The DVB loop may track progress between runs; verify/reset its tracking state as needed before rerunning a batch.\n\n## Output naming\n- ComfyUI SaveVideo normally appends a counter, e.g. `2_00001_.mp4`.\n- ExactFilenameAfterSave is a **custom, separately installed** node intended to rename it to `2.mp4` without re-encoding. It refuses to overwrite existing output files.\n- **Caution:** This custom node has not been validated against every ComfyUI version; its filename matching can be fragile if matching files already exist. Inspect outputs before using on valuable footage.\n- The relative prefix `video/Andhbhakt/Up/` resolves under the ComfyUI output directory. Change it for your own environment.\n\n## Limits and troubleshooting\n- RealESRGAN_x4plus is a nominal 4× spatial upscaler. Output dimensions and quality should be verified.\n- VHS_LoadVideoPath currently loads all frames (`frame_load_cap=0`), which can exhaust RAM/VRAM for long videos. Use shorter clips or a chunked workflow for production.\n- FPS is taken from `source_fps`; if you deliberately change loading cadence, reassess FPS choice.\n- For Each Done depends on upscaled frames, not SaveVideo completion; the graph alone does not guarantee save completion before loop state advances.\n- Check audio, duration, FPS, dimensions, and final filename on two test videos before large batches.\n- This workflow is for sequential queued processing, not robust job orchestration, failure recovery, or concurrency.\n\n## GitHub sharing\n- Export this JSON and include a README listing exact custom-node dependencies and model download instructions.\n- Do not publish your personal Windows directory paths, or replace them with placeholders before publishing.\n- Do not distribute third-party model weights or custom-node code without checking licenses.\n- This workflow JSON does **not** bundle the ExactFilenameAfterSave Python implementation.\n"
+      ],
+      "widgets_values_named": {
+        "text": "# Batch Video Upscaler — Real-ESRGAN (ComfyUI)\n\n## Purpose\nProcess multiple MP4 files from a directory, one file per queued execution, upscale their frames with RealESRGAN_x4plus, retain source audio and frame rate, and save to a dedicated output folder. The optional final custom node attempts to rename numbered SaveVideo outputs back to the original basename.\n\n## Required nodes\n- **ComfyUI core:** UpscaleModelLoader, ImageUpscaleWithModel, CreateVideo, SaveVideo.\n- **VideoHelperSuite (VHS):** VHS_LoadVideoPath, VHS_VideoInfo.\n- **Dream Video Batches (DVB):** For Each Filename [DVB], For Each Done [DVB].\n- **StringConcatenate**, **PreviewAny**, and **MarkdownNote** from their respective installed packs.\n- **Optional custom node:** ExactFilenameAfterSave (requires `custom_nodes/exact_filename_output/__init__.py`; NOT included in this JSON).\n\n## Data flow\n1. DVB selects one matching MP4 per queued execution; `filepath` feeds VHS_LoadVideoPath.\n2. VHS_LoadVideoPath decodes frames, source audio, and video information.\n3. UpscaleModelLoader loads `RealESRGAN_x4plus.safetensors`; ImageUpscaleWithModel upscales decoded frames.\n4. VHS_VideoInfo.source_fps feeds CreateVideo.fps. Original audio feeds CreateVideo.audio.\n5. CreateVideo packages upscaled frames, FPS, and audio as a VIDEO; SaveVideo encodes and saves it.\n6. DVB `name` feeds StringConcatenate.`string_b`; `string_a` is `video/Andhbhakt/Up/` and delimiter is empty. The result feeds SaveVideo.filename_prefix and ExactFilenameAfterSave.filename_prefix.\n7. SaveVideo.video feeds ExactFilenameAfterSave.video. The custom node attempts exact-filename renaming after save.\n8. Upscaled frames also feed For Each Done.image, and DVB.foreach feeds For Each Done.foreach.\n\n## Running a batch\n- Edit DVB `directory` to your own absolute input directory; the supplied path is machine-specific.\n- Set DVB `pattern` to `*.mp4` (or change it to match your media).\n- **Batch Count next to Run = number of files you want to process**. DVB does not automatically queue all files in a single execution.\n- Queue sequentially, not concurrently, especially when using exact-filename renaming.\n- The DVB loop may track progress between runs; verify/reset its tracking state as needed before rerunning a batch.\n\n## Output naming\n- ComfyUI SaveVideo normally appends a counter, e.g. `2_00001_.mp4`.\n- ExactFilenameAfterSave is a **custom, separately installed** node intended to rename it to `2.mp4` without re-encoding. It refuses to overwrite existing output files.\n- **Caution:** This custom node has not been validated against every ComfyUI version; its filename matching can be fragile if matching files already exist. Inspect outputs before using on valuable footage.\n- The relative prefix `video/Andhbhakt/Up/` resolves under the ComfyUI output directory. Change it for your own environment.\n\n## Limits and troubleshooting\n- RealESRGAN_x4plus is a nominal 4× spatial upscaler. Output dimensions and quality should be verified.\n- VHS_LoadVideoPath currently loads all frames (`frame_load_cap=0`), which can exhaust RAM/VRAM for long videos. Use shorter clips or a chunked workflow for production.\n- FPS is taken from `source_fps`; if you deliberately change loading cadence, reassess FPS choice.\n- For Each Done depends on upscaled frames, not SaveVideo completion; the graph alone does not guarantee save completion before loop state advances.\n- Check audio, duration, FPS, dimensions, and final filename on two test videos before large batches.\n- This workflow is for sequential queued processing, not robust job orchestration, failure recovery, or concurrency.\n\n## GitHub sharing\n- Export this JSON and include a README listing exact custom-node dependencies and model download instructions.\n- Do not publish your personal Windows directory paths, or replace them with placeholders before publishing.\n- Do not distribute third-party model weights or custom-node code without checking licenses.\n- This workflow JSON does **not** bundle the ExactFilenameAfterSave Python implementation.\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 37,
+      "type": "StringConcatenate",
+      "pos": [
+        989.2049051860965,
+        395.9808253305566
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            39,
+            69,
+            71
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringConcatenate",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "video/Source_folder/Upscale/",
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "string_a": "video/Source_folder/Upscale/",
+        "string_b": "",
+        "delimiter": ""
+      }
+    },
+    {
+      "id": 38,
+      "type": "PreviewAny",
+      "pos": [
+        1807.3050209733387,
+        718.213245988381
+      ],
+      "size": [
+        533.3541666666626,
+        236.27777777777635
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 42,
+      "type": "CreateVideo",
+      "pos": [
+        1336.1039815902789,
+        135.5255959374985
+      ],
+      "size": [
+        320,
+        150
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 53
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "fps": true
+          },
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        },
+        "cnr_id": "comfy-core",
+        "ver": "0.10.0"
+      },
+      "widgets_values": [
+        30,
+        "auto",
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 30,
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 48,
+      "type": "ExactFilenameAfterSave",
+      "pos": [
+        2639.48828125,
+        216
+      ],
+      "size": [
+        260,
+        90
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 68
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 69
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "ExactFilenameAfterSave",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.8",
+          "input_ue_unconnectable": {}
+        }
+      }
+    },
+    {
+      "id": 49,
+      "type": "SaveVideo",
+      "pos": [
+        1961.7330727601382,
+        98.28730241464127
+      ],
+      "size": [
+        270,
+        536.75
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 70
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.8"
+        }
+      },
+      "widgets_values": [
+        "upscaled",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "upscaled",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
+    }
+  ],
+  "links": [
+    [
+      23,
+      1,
+      0,
+      16,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      26,
+      15,
+      3,
+      17,
+      0,
+      "VHS_VIDEOINFO"
+    ],
+    [
+      29,
+      19,
+      0,
+      15,
+      2,
+      "STRING"
+    ],
+    [
+      30,
+      19,
+      2,
+      20,
+      1,
+      "FOREACH"
+    ],
+    [
+      22,
+      15,
+      0,
+      16,
+      1,
+      "IMAGE"
+    ],
+    [
+      39,
+      37,
+      0,
+      38,
+      0,
+      "STRING"
+    ],
+    [
+      52,
+      16,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      15,
+      2,
+      42,
+      1,
+      "AUDIO"
+    ],
+    [
+      54,
+      17,
+      0,
+      42,
+      2,
+      "FLOAT"
+    ],
+    [
+      61,
+      16,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      19,
+      1,
+      37,
+      0,
+      "STRING"
+    ],
+    [
+      68,
+      49,
+      0,
+      48,
+      0,
+      "VIDEO"
+    ],
+    [
+      69,
+      37,
+      0,
+      48,
+      1,
+      "STRING"
+    ],
+    [
+      70,
+      42,
+      0,
+      49,
+      0,
+      "VIDEO"
+    ],
+    [
+      71,
+      37,
+      0,
+      49,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.770053475935843,
+      "offset": [
+        -205.26578379139008,
+        307.8308418261695
+      ]
+    },
+    "frontendVersion": "1.57.4",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "extensions": {
+    "seed_widgets": {},
+    "properties": {}
+  },
+  "version": 0.4,
+  "seed_widgets": {}
+}
