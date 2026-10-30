@@ -12,7 +12,7 @@ Process multiple MP4 files from a directory, one file per queued execution, upsc
 - **VideoHelperSuite (VHS):** VHS_LoadVideoPath, VHS_VideoInfo.
 - **Dream Video Batches (DVB):** For Each Filename [DVB], For Each Done [DVB].
 - **StringConcatenate**, **PreviewAny**, and **MarkdownNote** from their respective installed packs.
-- **Optional custom node:** ExactFilenameAfterSave (requires `custom_nodes/exact_filename_output/__init__.py`; NOT included in this JSON).
+- **Optional custom node:** ExactFilenameAfterSave (requires `custom_nodes/exact_filename_output/__init__.py`) I have included this in the repository, make the folder "exact_filename_output" in custom_nodes and  put the __init__.py file inside the exact_filename_output folder
 
 ## Data flow
 1. DVB selects one matching MP4 per queued execution; `filepath` feeds VHS_LoadVideoPath.
