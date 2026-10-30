@@ -50,5 +50,41 @@ Process multiple MP4 files from a directory, one file per queued execution, upsc
 - Do not publish your personal Windows directory paths, or replace them with placeholders before publishing.
 - Do not distribute third-party model weights or custom-node code without checking licenses.
 - This workflow JSON does **not** bundle the ExactFilenameAfterSave Python implementation.
+
+## Credits & Attribution
+
+This project builds upon existing open-source tools and a ComfyUI Real-ESRGAN video-upscaling workflow.
+
+### Original projects
+
+- **[ComfyUI](https://github.com/comfyanonymous/ComfyUI)** — The node-based AI processing framework.
+- **[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)** — The image restoration and super-resolution technology used for upscaling.
+- **[Comfy-Org Real-ESRGAN Model](https://huggingface.co/Comfy-Org/Real-ESRGAN)** — Repackaged Real-ESRGAN model weights for ComfyUI.
+- **Dream Video Batches (DVB)** — Provides the `For Each Filename` and `For Each Done` nodes for batch processing.
+- **[ComfyUI-VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite)** — Provides video-loading and video-information functionality.
+
+### Original workflow
+
+The video-upscaling pipeline was adapted from an existing ComfyUI Real-ESRGAN workflow template.
+
+Credit for the original upscaling workflow and underlying technologies belongs to their respective creators.
+
+### My Contributions
+
+This repository focuses on extending the existing workflow with:
+
+- Folder-based batch video processing using DVB.
+- Dynamic output directory and filename generation.
+- Integration of video upscaling with audio and FPS preservation.
+- Custom post-save filename handling.
+- Workflow organization, documentation, and practical automation.
+
+### License
+
+Original contributions in this repository are made available under the MIT License, subject to any applicable third-party licensing requirements.
+
+ComfyUI, Real-ESRGAN, Dream Video Batches, VideoHelperSuite, model weights, and any original template material remain governed by their respective licenses.
+
+This project is an independent community workflow and is not officially affiliated with or endorsed by the maintainers of those projects.
 <img width="1617" height="799" alt="image" src="https://github.com/user-attachments/assets/470dc3e4-5198-42d7-8554-91fba76c984a" />
 
